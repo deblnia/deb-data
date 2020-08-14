@@ -1,0 +1,32 @@
+---
+title: "eda"
+author: "Deblina Mukherjee"
+date: "8/14/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+police <- read_csv("https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv")
+
+```
+
+
+```{r}
+police  %>% 
+  mutate(body_camera = if_else(body_camera == TRUE, "Yes", "No")) %>% 
+ggplot() + 
+  geom_bar(aes(fct_infreq(state), , fill = body_camera)) + 
+  coord_flip() + 
+  labs(x = "State", 
+       y = "Frequency", 
+       fill = "Body Cameras?")
+```
+
+
