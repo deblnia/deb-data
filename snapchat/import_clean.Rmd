@@ -1,0 +1,34 @@
+---
+title: "import_clean"
+author: "Deblina Mukherjee"
+date: "1/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+```{r}
+pa2018 <- read_csv("PoliticalAds1.csv") #2018 
+pa2019 <- read_csv("PoliticalAds2.csv") # 2019 
+pa2020 <- read_csv("PoliticalAds3.csv") #2020
+
+```
+
+
+```{r}
+partial <- rbind(pa2018, pa2019)
+
+full <- rbind(partial, pa2020)
+```
+
+
+```{r}
+ggplot(full) + 
+  geom_point(aes(Spend, Impressions))
+
+```
+

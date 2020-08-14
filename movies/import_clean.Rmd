@@ -1,0 +1,21 @@
+---
+title: "Bechdel Data"
+author: "Deblina Mukherjee"
+date: "1/20/2020"
+output: html_document
+---
+
+```{r echo=FALSE}
+library(tidyverse)
+```
+
+
+```{r warmning=FALSE}
+movies <- read_csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/bechdel/movies.csv")
+```
+
+```{r}
+ggplot(movies) + 
+  geom_bar(aes(binary))
+```
+
